@@ -1,8 +1,22 @@
 import type { Metadata } from 'next'
+import { DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
 import Sidebar from '@/components/layout/Sidebar'
 import BottomNav from '@/components/layout/BottomNav'
 import { ToastProvider } from '@/components/ui/Toast'
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-roobert',
+  display: 'swap',
+})
+
+const dmMono = DM_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-supply',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'HydraCheck — Rehydration Effectiveness Analyzer',
@@ -12,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id">
+    <html lang="id" className={`${dmSans.variable} ${dmMono.variable}`}>
       <body className="bg-canvas-cream text-inkwell-violet font-roobert">
         <ToastProvider>
           <div className="flex min-h-screen">

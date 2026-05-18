@@ -9,9 +9,9 @@
   --color-pitch-black: #000000;
   --color-pure-white: #ffffff;
 
-  /* ── Fonts ── */
-  --font-roobert: 'Roobert', system-ui, -apple-system, sans-serif;
-  --font-supply: 'Supply', ui-monospace, monospace;
+  /* ── Fonts (resolved by next/font CSS variables on <html>) ── */
+  --font-roobert: var(--font-roobert), system-ui, -apple-system, sans-serif;
+  --font-supply: var(--font-supply), ui-monospace, monospace;
 
   /* ── Type scale ── */
   --text-body-sm: 16px;
