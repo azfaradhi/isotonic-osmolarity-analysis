@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Colors ── */
+  --color-canvas-cream: #fffcf7;
+  --color-inkwell-violet: #0d0129;
+  --color-teal-basin: #19615c;
+  --color-glow-yellow: #fae59b;
+  --color-pitch-black: #000000;
+  --color-pure-white: #ffffff;
+
+  /* ── Fonts ── */
+  --font-roobert: 'Roobert', system-ui, -apple-system, sans-serif;
+  --font-supply: 'Supply', ui-monospace, monospace;
+
+  /* ── Type scale ── */
+  --text-body-sm: 16px;
+  --text-body: 20px;
+  --text-subheading: 24px;
+  --text-heading-sm: 40px;
+  --text-heading: 48px;
+  --text-heading-lg: 56px;
+  --text-display: 64px;
+
+  /* ── Border radius ── */
+  --radius-none: 0px;
+  --radius-cta: 4px;
+
+  /* ── Shadows ── */
+  --shadow-subtle: rgb(0 0 0) 1px 1px 3px 0px;
+
+  /* ── Max widths ── */
+  --width-page: 80rem; /* 1280px */
+
+  /* ── Animations ── */
+  --animate-slide-in: slide-in 0.25s ease-out forwards;
+  --animate-shimmer: shimmer 1.5s infinite;
+  --animate-fade-in-up: fade-in-up 0.3s ease-out forwards;
+}
+
+@keyframes slide-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes shimmer {
+  to { transform: translateX(200%); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    background-color: var(--color-canvas-cream);
+    color: var(--color-inkwell-violet);
+    font-family: var(--font-roobert);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  input[type='number'] { -moz-appearance: textfield; }
+  input[type='range']  { accent-color: var(--color-inkwell-violet); }
+}
