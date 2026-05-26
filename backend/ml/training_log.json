@@ -1,0 +1,34 @@
+{
+  "model_type": "random_forest",
+  "n_estimators": 200,
+  "max_depth": 10,
+  "test_size": 0.2,
+  "features": [
+    "na_mmol_L",
+    "k_mmol_L",
+    "cl_mmol_L",
+    "glucose_mmol_L",
+    "sucrose_mmol_L",
+    "calculated_osmolarity",
+    "effective_tonicity",
+    "phantom_osmolarity"
+  ],
+  "metrics": {
+    "mae": 1.7126,
+    "rmse": 2.7757,
+    "r2": 0.9693
+  },
+  "feature_importance": {
+    "calculated_osmolarity": 0.246,
+    "glucose_mmol_L": 0.2253,
+    "phantom_osmolarity": 0.2132,
+    "na_mmol_L": 0.1278,
+    "effective_tonicity": 0.0986,
+    "cl_mmol_L": 0.0812,
+    "k_mmol_L": 0.0077,
+    "sucrose_mmol_L": 0.0002
+  },
+  "training_samples": 422,
+  "test_samples": 106,
+  "trained_at": "2026-05-19T09:15:37.504903Z"
+}

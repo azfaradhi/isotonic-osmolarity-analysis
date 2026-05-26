@@ -67,13 +67,7 @@ export default function TrainingTab() {
     } catch (err) {
       clearInterval(ticker)
       const msg = (err as Error).message
-      setLog((p) => [
-        ...p,
-        `[ERROR] ${msg}`,
-        ...(msg.includes('404') || msg.includes('500')
-          ? ['[INFO] Endpoint /api/model/train belum tersedia.', '[INFO] Tambahkan routes/model.py dan daftarkan di app.py.']
-          : []),
-      ])
+      setLog((p) => [...p, `[ERROR] ${msg}`])
       show(msg, 'error')
     } finally {
       setTraining(false)

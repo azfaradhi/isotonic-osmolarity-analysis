@@ -2,13 +2,14 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { HomeIcon, CalculatorIcon, CompareIcon, MlIcon, InfoIcon } from '@/components/ui/Icons'
 
 const tabs = [
-  { href: '/',           label: 'Home'      },
-  { href: '/calculator', label: 'Kalkulator'},
-  { href: '/compare',    label: 'Komparasi' },
-  { href: '/ml',         label: 'ML'        },
-  { href: '/about',      label: 'Info'      },
+  { href: '/',           label: 'Home',       icon: HomeIcon },
+  { href: '/calculator', label: 'Kalkulator', icon: CalculatorIcon },
+  { href: '/compare',    label: 'Komparasi',  icon: CompareIcon },
+  { href: '/ml',         label: 'ML',         icon: MlIcon },
+  { href: '/about',      label: 'Info',       icon: InfoIcon },
 ]
 
 export default function BottomNav() {
@@ -16,7 +17,7 @@ export default function BottomNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-pure-white border-t border-inkwell-violet flex">
-      {tabs.map(({ href, label }) => {
+      {tabs.map(({ href, label, icon: Icon }) => {
         const active = pathname === href
         return (
           <Link
@@ -26,6 +27,7 @@ export default function BottomNav() {
               active ? 'text-teal-basin' : 'text-inkwell-violet'
             }`}
           >
+            <Icon className="mb-0.5" />
             {label}
           </Link>
         )

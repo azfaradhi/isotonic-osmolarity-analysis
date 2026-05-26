@@ -48,18 +48,12 @@ export default function PredictTab() {
         glucose_mmol_L:        calcResult.glucose_mmol_L,
         na_glucose_ratio:      calcResult.na_glucose_ratio,
         absorption_score:      calcResult.absorption_score,
-        sucrose_mmol_L:        0,
-        cl_mmol_L:             0,
+        sucrose_mmol_L:        calcResult.sucrose_mmol_L,
+        cl_mmol_L:             calcResult.cl_mmol_L,
       })
       setPrediction(res)
     } catch (err) {
-      const msg = (err as Error).message
-      show(
-        msg.includes('404') || msg.includes('500')
-          ? 'Endpoint /api/model/predict belum tersedia. Tambahkan routes/model.py di backend.'
-          : msg,
-        'warning',
-      )
+      show((err as Error).message, 'warning')
     } finally {
       setLoadingPred(false)
     }

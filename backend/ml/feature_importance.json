@@ -1,0 +1,10 @@
+{
+  "calculated_osmolarity": 0.246,
+  "glucose_mmol_L": 0.2253,
+  "phantom_osmolarity": 0.2132,
+  "na_mmol_L": 0.1278,
+  "effective_tonicity": 0.0986,
+  "cl_mmol_L": 0.0812,
+  "k_mmol_L": 0.0077,
+  "sucrose_mmol_L": 0.0002
+}

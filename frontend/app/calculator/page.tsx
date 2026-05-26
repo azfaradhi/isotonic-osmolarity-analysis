@@ -27,11 +27,16 @@ export default function CalculatorPage() {
 
   async function handleSave() {
     if (!lastForm.current) return
-    const name = window.prompt('Nama produk:')
+    const name = window.prompt('Nama sampel:')
     if (!name?.trim()) return
     try {
-      await api.addProduct({ name: name.trim(), ...lastForm.current })
-      show(`Produk "${name.trim()}" berhasil disimpan`, 'success')
+      await api.addDatasetRow({
+        product_name: name.trim(),
+        components: lastForm.current.components,
+        volume_mL: lastForm.current.volume_mL,
+        source: 'homemade',
+      })
+      show(`Sampel "${name.trim()}" berhasil disimpan ke dataset`, 'success')
     } catch (err) {
       show((err as Error).message, 'error')
     }

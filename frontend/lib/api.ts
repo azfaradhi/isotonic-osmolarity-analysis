@@ -26,7 +26,9 @@ export interface CalculateResult {
   tonicity_status: TonicityStatus
   na_mmol_L: number
   k_mmol_L: number
+  cl_mmol_L: number
   glucose_mmol_L: number
+  sucrose_mmol_L: number
   na_glucose_ratio: number
   osmotic_gradient: number
   absorption_score: number
@@ -63,6 +65,13 @@ export interface DatasetResponse {
   rows: Record<string, unknown>[]
   total: number
   columns: string[]
+}
+
+export interface AddDatasetRequest {
+  product_name: string
+  components: Components
+  volume_mL: number
+  source?: string
 }
 
 export interface TrainRequest {
@@ -124,6 +133,12 @@ export const api = {
   },
 
   downloadDataset: () => fetch(`${BASE}/dataset/download`),
+
+  addDatasetRow: (body: AddDatasetRequest) =>
+    apiFetch<{ status: string; row: Record<string, unknown>; total: number }>('/dataset/add', {
+      method: 'POST',
+      body: JSON.stringify(body),
+    }),
 
   trainModel: (body: TrainRequest) =>
     apiFetch<TrainResult>('/model/train', { method: 'POST', body: JSON.stringify(body) }),

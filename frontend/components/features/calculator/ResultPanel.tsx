@@ -173,7 +173,7 @@ export default function ResultPanel({ result, loading, onSave }: ResultPanelProp
           onClick={onSave}
           className="self-start border border-inkwell-violet px-5 py-2.5 font-roobert text-body-sm text-inkwell-violet hover:bg-inkwell-violet hover:text-pure-white transition-colors"
         >
-          Simpan sebagai Produk Baru
+          Simpan ke Dataset
         </button>
       )}
     </div>

@@ -152,7 +152,7 @@ Tambah produk baru ke database.
 
 ### GET `/api/dataset`
 
-Ambil preview 100 baris pertama dataset ML.
+Ambil preview 50 baris pertama dataset ML.
 
 **Response:**
 ```json
@@ -160,6 +160,34 @@ Ambil preview 100 baris pertama dataset ML.
   "rows":    [ { ...row... } ],
   "total":   400,
   "columns": ["product_name", "na_mmol_L", "k_mmol_L", ...]
+}
+```
+
+---
+
+### POST `/api/dataset/add`
+
+Tambah satu sampel baru ke dataset ML.
+
+**Request Body:**
+```json
+{
+  "product_name": "Minuman Custom",
+  "components": {
+    "NaCl": 1.2,
+    "glucose": 6.0
+  },
+  "volume_mL": 500,
+  "source": "homemade"
+}
+```
+
+**Response (`201`):**
+```json
+{
+  "status": "success",
+  "row": { "...": "hasil perhitungan lengkap" },
+  "total": 451
 }
 ```
 
