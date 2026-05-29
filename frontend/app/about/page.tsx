@@ -1,3 +1,11 @@
+import Image from 'next/image'
+
+const TEAM = [
+  { name: 'Azfa', role: 'Backend Developer', photo: '/foto1.jpeg' },
+  { name: 'Barru', role: 'Frontend Developer', photo: '/foto2.jpeg' },
+  { name: 'Rafif', role: 'AI Engineer', photo: '/foto3.jpeg' },
+]
+
 export default function AboutPage() {
   return (
     <div className="py-10 flex flex-col gap-10">
@@ -31,14 +39,16 @@ export default function AboutPage() {
       <section className="border border-inkwell-violet p-6">
         <h2 className="font-roobert font-bold text-subheading text-inkwell-violet mb-5">Tim Pengembang</h2>
         <div className="grid sm:grid-cols-3 gap-6">
-          {[
-            { name: 'Nama 1', role: 'Peran / Tanggung jawab' },
-            { name: 'Nama 2', role: 'Peran / Tanggung jawab' },
-            { name: 'Nama 3', role: 'Peran / Tanggung jawab' },
-          ].map((member) => (
+          {TEAM.map((member) => (
             <div key={member.name} className="flex flex-col items-center text-center gap-2">
-              <div className="w-24 h-24 rounded-full border border-inkwell-violet bg-canvas-cream flex items-center justify-center">
-                <span className="font-supply text-xs text-inkwell-violet/60">Foto</span>
+              <div className="w-24 h-24 rounded-full border border-inkwell-violet bg-canvas-cream overflow-hidden">
+                <Image
+                  src={member.photo}
+                  alt={`Foto ${member.name}`}
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <p className="font-roobert font-bold text-body-sm text-inkwell-violet">{member.name}</p>
               <p className="font-roobert text-xs text-inkwell-violet/60">{member.role}</p>
